@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import axios from 'axios';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {loginUser} from '../../../_actions/user_action';
 
 const LoginPage = (props) => {

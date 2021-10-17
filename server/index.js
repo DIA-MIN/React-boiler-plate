@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 5000;
 const cookieParser = require('cookie-parser');
 const {User} = require('./models/User');
 const {auth} = require('./middleware/auth');
@@ -23,6 +23,10 @@ mongoose
 
 app.get('/', (req, res) => res.send('리액트 조아아~!'));
 
+app.get('/api/hello', (req, res) => {
+  res.send('안녕하세요.');
+});
+
 /**
  * 회원 가입
  */
@@ -30,6 +34,7 @@ app.post('/api/users/register', (req, res) => {
   // 회원 가입 할때 필요한 정보들을 client에서 가져오면
   // 그것들을 디비에 넣어준다
   const user = new User(req.body);
+
   user.save((err, doc) => {
     if (err) {
       return res.json({success: false, err});
